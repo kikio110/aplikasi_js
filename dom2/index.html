@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Diskon</title>
+</head>
+<body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <!-- Navbar content -->
+   <div class="container-fluid">
+    <a class="navbar-brand" href="#">Project Pelatihan</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Hitung Diskon</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cekAngka.html">Cek Angka</a>
+        </li>
+                </li>
+                <li class="nav-item">
+          <a class="nav-link" href="kalkulator.html">Kalkulator</a>
+        </li>
+                 </li>
+                <li class="nav-item">
+          <a class="nav-link" href="/api/index.html">OlShop</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+    <h1>Kalkulator Diskon</h1>
+
+    <label for="harga">Harga Barang:</label>
+    <br>
+    <input type="number" id="harga" placeholder="Masukkan harga">
+    <br>
+    <label for="diskon">Diskon (%):</label>
+    <br>
+    <input type="number" id="diskon" placeholder="Masukkan persentase diskon">
+    <br>
+    <button onclick="hitungDiskon()">Hitung Diskon</button>
+
+    <h3 id="hasilDiskon"></h3>
+</div>
+
+<script>
+    function hitungDiskon() {
+        const harga = parseFloat(document.getElementById('harga').value);
+        const nilaiDiskon = parseFloat(document.getElementById('diskon').value);
+
+        if (isNaN(harga) || isNaN(nilaiDiskon)) {
+            document.getElementById('hasilDiskon').textContent = "Mohon masukkan angka yang valid.";
+            return;
+        }
+
+        const hargaAkhir = harga - (harga * nilaiDiskon / 100);
+
+        document.getElementById('hasilDiskon').textContent = `Harga setelah diskon: Rp${hargaAkhir.toFixed(2)}`;
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

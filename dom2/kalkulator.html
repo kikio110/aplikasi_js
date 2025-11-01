@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+     <style>
+  .calculator {
+    width: 220px; /* atur lebar kalkulator */
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .calculator input {
+    width: 100%;
+    height: 40px;
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+    gap: 5px;
+  }
+
+  .buttons button {
+    height: 45px;
+    font-size: 16px;
+  }
+</style>
+    <title>Kalkulator</title>
+</head>
+<body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <!-- Navbar content -->
+   <div class="container-fluid">
+    <a class="navbar-brand" href="#">Project Pelatihan</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Hitung Diskon</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cekAngka.html">Cek Angka</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="kalkulator.html">Kalkulator</a>
+        </li>
+         </li>
+                <li class="nav-item">
+          <a class="nav-link" href="/api/index.html">OlShop</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="calculator">
+  <h3>Kalkulator</h3>
+  <input type="text" id="nilai" readonly>
+
+  <div class="buttons">
+    <button onclick="tambahAngka(1)" class="btn btn-light">1</button>
+    <button onclick="tambahAngka(2)" class="btn btn-light">2</button>
+    <button onclick="tambahAngka(3)" class="btn btn-light">3</button>
+    <button onclick="operator('C')" class="btn btn-danger">C</button>
+
+    <button onclick="tambahAngka(4)" class="btn btn-light">4</button>
+    <button onclick="tambahAngka(5)" class="btn btn-light">5</button>
+    <button onclick="tambahAngka(6)" class="btn btn-light">6</button>
+    <button onclick="hitung()" class="btn btn-warning">=</button>
+
+    <button onclick="tambahAngka(7)" class="btn btn-light">7</button>
+    <button onclick="tambahAngka(8)" class="btn btn-light">8</button>
+    <button onclick="tambahAngka(9)" class="btn btn-light">9</button>
+    <button onclick="operator('*')" class="btn btn-secondary">*</button>
+
+    <button onclick="operator('+')" class="btn btn-secondary">+</button>
+    <button onclick="operator('-')" class="btn btn-secondary">-</button>
+    <button onclick="operator('/')" class="btn btn-secondary">:</button>
+    <button onclick="tambahAngka(0)" class="btn btn-light">0</button>
+  </div>
+</div>
+
+
+<script>
+    let nilai1 = "";
+    let nilai2 = "";
+    let opr = "";
+
+    function tambahAngka(angka) {
+        document.getElementById('nilai').value += angka;
+    }
+    function operator(op) {
+        nilai1 = document.getElementById('nilai').value;
+        opr = op
+        document.getElementById('nilai').value = "";
+    }
+    function hitung() {
+        nilai2 = document.getElementById('nilai').value;
+        switch (opr) {
+    case "+":
+        document.getElementById('nilai').value = (parseInt(nilai1) + parseInt(nilai2));
+        break;
+        case "-":
+        document.getElementById('nilai').value = (parseInt(nilai1) - parseInt(nilai2));
+        break;
+        case "/":
+        document.getElementById('nilai').value = (parseInt(nilai1) / parseInt(nilai2));
+        break;
+        case "*":
+       document.getElementById('nilai').value = (parseInt(nilai1) * parseInt(nilai2));
+        break;
+        case "C":
+        document.getElementById('nilai').value = "";
+        break;
+    default:
+        console.log("bukan operasi aritmatika"); 
+        break;
+}
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
