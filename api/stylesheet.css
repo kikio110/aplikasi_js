@@ -1,0 +1,137 @@
+:root {
+      --primary: #E63946;
+      --secondary: #FF6B6B;
+      --light: #FFE6E6;
+      --white: #FFFFFF;
+      --gray-light: #F8F9FA;
+      --text-dark: #3A3A3A;
+      --accent: #FF6B6B;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--text-dark);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: var(--primary);
+    }
+    nav.sticky-top {
+      z-index: 1020;
+    }
+    nav .navbar-brand {
+      color: var(--white);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    nav .navbar-nav .nav-link {
+      color: var(--white);
+      margin-right: 15px;
+      transition: 0.3s;
+    }
+    nav .navbar-nav .nav-link:hover {
+      color: var(--secondary);
+    }
+
+    /* Hero */
+    .hero-section {
+      background: url('img/hero.jpg') center/cover no-repeat;
+      position: relative;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-custom {
+      background-color: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+      background-color: var(--white);
+      color: var(--accent);
+    }
+
+    /* Product */
+    .product-box {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(230,57,70,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .product-box:hover { transform: translateY(-5px); }
+    .product-imitation img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .product-desc { padding: 15px; text-align: center; }
+    .product-price { color: var(--primary); font-weight: bold; font-size: 1.1rem; }
+    .product-name {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      display: block;
+      margin: 8px 0;
+    }
+    .product-name:hover { color: var(--secondary); }
+
+    /* Promo */
+    .promo-section { padding: 80px 0; }
+    .promo-card {
+      height: 100%;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .promo-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .promo-card img { height: 220px; width: 100%; object-fit: cover; }
+    .promo-card .card-body { flex:1; display:flex; flex-direction:column; justify-content:space-between; text-align:center; padding:20px;}
+    .promo-card .card-title { font-weight:600; color:var(--primary); margin-bottom:10px; }
+    .promo-card .card-text { font-size:0.95rem; color:#555; }
+
+    /* Testimoni */
+    .testimonial-section { padding:60px 0; background-color: var(--light); }
+    .testimonial-card {
+      border: none; border-radius:12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding:20px; background-color: var(--white);
+    }
+    .testimonial-card h6 { color: var(--primary); }
+
+    /* Footer */
+    footer { background-color: var(--primary); color: var(--white); padding:30px 0; text-align:center;}
+    footer a { color: var(--white); text-decoration:underline; }
